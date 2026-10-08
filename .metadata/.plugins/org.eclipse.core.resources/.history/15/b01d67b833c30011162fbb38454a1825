@@ -1,0 +1,187 @@
+import java.util.Scanner;
+
+public class Assignment03 {
+
+    static Scanner sc = new Scanner(System.in);
+
+    static void display(int[][] matrix) {
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[0].length; j++) {
+                System.out.print(matrix[i][j] + "\t");
+            }
+            System.out.println();
+        }
+    }
+
+    static int[][] addition(int[][] a, int[][] b) {
+        int rows = a.length;
+        int cols = a[0].length;
+
+        int[][] result = new int[rows][cols];
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                result[i][j] = a[i][j] + b[i][j];
+            }
+        }
+
+        return result;
+    }
+
+    static int[][] subtraction(int[][] a, int[][] b) {
+        int rows = a.length;
+        int cols = a[0].length;
+
+        int[][] result = new int[rows][cols];
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                result[i][j] = a[i][j] - b[i][j];
+            }
+        }
+
+        return result;
+    }
+
+    static int[][] multiplication(int[][] a, int[][] b) {
+
+        int rows = a.length;
+        int cols = b[0].length;
+        int common = a[0].length;
+
+        int[][] result = new int[rows][cols];
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                for (int k = 0; k < common; k++) {
+                    result[i][j] += a[i][k] * b[k][j];
+                }
+            }
+        }
+
+        return result;
+    }
+
+    static int[][] transpose(int[][] matrix) {
+
+        int rows = matrix.length;
+        int cols = matrix[0].length;
+
+        int[][] result = new int[cols][rows];
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                result[j][i] = matrix[i][j];
+            }
+        }
+
+        return result;
+    }
+
+    static boolean isSquare(int[][] matrix) {
+        return matrix.length == matrix[0].length;
+    }
+
+    static boolean isDiagonal(int[][] matrix) {
+
+        if (!isSquare(matrix))
+            return false;
+
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix.length; j++) {
+                if (i != j && matrix[i][j] != 0) {
+                    return false;
+                }
+            }
+        }
+
+        return true;
+    }
+
+    static boolean isIdentity(int[][] matrix) {
+
+        if (!isSquare(matrix))
+            return false;
+
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix.length; j++) {
+
+                if (i == j && matrix[i][j] != 1)
+                    return false;
+
+                if (i != j && matrix[i][j] != 0)
+                    return false;
+            }
+        }
+
+        return true;
+    }
+
+    static int[][] readMatrix(int rows, int cols) {
+
+        int[][] matrix = new int[rows][cols];
+
+        System.out.println("Enter matrix elements:");
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                matrix[i][j] = sc.nextInt();
+            }
+        }
+
+        return matrix;
+    }
+
+    public static void main(String[] args) {
+
+        System.out.print("Enter rows of Matrix A: ");
+        int r1 = sc.nextInt();
+
+        System.out.print("Enter columns of Matrix A: ");
+        int c1 = sc.nextInt();
+
+        int[][] a = readMatrix(r1, c1);
+
+        System.out.print("Enter rows of Matrix B: ");
+        int r2 = sc.nextInt();
+
+        System.out.print("Enter columns of Matrix B: ");
+        int c2 = sc.nextInt();
+
+        int[][] b = readMatrix(r2, c2);
+
+        System.out.println("\nMatrix A:");
+        display(a);
+
+        System.out.println("\nMatrix B:");
+        display(b);
+
+        if (r1 == r2 && c1 == c2) {
+
+            System.out.println("\nAddition:");
+            display(addition(a, b));
+
+            System.out.println("\nSubtraction:");
+            display(subtraction(a, b));
+
+        } else {
+            System.out.println("\nAddition/Subtraction not possible.");
+        }
+
+        if (c1 == r2) {
+            System.out.println("\nMultiplication:");
+            display(multiplication(a, b));
+        } else {
+            System.out.println("\nMultiplication not possible.");
+        }
+
+        System.out.println("\nTranspose of Matrix A:");
+        display(transpose(a));
+
+        System.out.println("\nIs Matrix A Square? " + isSquare(a));
+        System.out.println("Is Matrix A Diagonal? " + isDiagonal(a));
+        System.out.println("Is Matrix A Identity? " + isIdentity(a));
+
+        sc.close();
+    }
+}

@@ -1,0 +1,133 @@
+//5	Design a console-based Bank Management Program in Java that allows a user to create a bank account and perform basic banking operations such as deposit, withdrawal, balance enquiry, and account details display. The program should handle exceptions as required.
+
+package Assignments;
+
+import java.util.Scanner;
+
+class Bank
+{
+    String name;
+    int accno;
+    double bal;
+
+    void create(String n, int a, double b)
+    {
+        name = n;
+        accno = a;
+        bal = b;
+    }
+
+    void deposit(double x)
+    {
+        bal = bal + x;
+        System.out.println("Money deposited");
+    }
+
+    void withdraw(double x)
+    {
+        if(x > bal)
+        {
+            System.out.println("Not enough balance");
+        }
+        else
+        {
+            bal = bal - x;
+            System.out.println("Money withdrawn");
+        }
+    }
+
+    void balance()
+    {
+        System.out.println("Balance = " + bal);
+    }
+
+    void details()
+    {
+        System.out.println("Name = " + name);
+        System.out.println("Account No = " + accno);
+        System.out.println("Balance = " + bal);
+    }
+}
+
+public class Assignment05
+{
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+
+        Bank b = new Bank();
+
+        System.out.print("Enter name: ");
+        String n = sc.nextLine();
+
+        System.out.print("Enter account number: ");
+        int a = sc.nextInt();
+
+        System.out.print("Enter balance: ");
+        double money = sc.nextDouble();
+
+        b.create(n, a, money);
+
+        int ch = 0;
+
+        while(ch != 5)
+        {
+            System.out.println("\n1. Deposit");
+            System.out.println("2. Withdraw");
+            System.out.println("3. Balance");
+            System.out.println("4. Account Details");
+            System.out.println("5. Exit");
+
+            System.out.print("Enter choice: ");
+
+            try
+            {
+                ch = sc.nextInt();
+
+                if(ch == 1)
+                {
+                    System.out.print("Enter amount: ");
+                    double x = sc.nextDouble();
+
+                    if(x <= 0)
+                        throw new Exception("Invalid amount");
+
+                    b.deposit(x);
+                }
+                else if(ch == 2)
+                {
+                    System.out.print("Enter amount: ");
+                    double x = sc.nextDouble();
+
+                    if(x <= 0)
+                        throw new Exception("Invalid amount");
+
+                    b.withdraw(x);
+                }
+                else if(ch == 3)
+                {
+                    b.balance();
+                }
+                else if(ch == 4)
+                {
+                    b.details();
+                }
+                else if(ch == 5)
+                {
+                    System.out.println("Thank you");
+                }
+                else
+                {
+                    System.out.println("Wrong choice");
+                }
+            }
+            catch(Exception e)
+            {
+                System.out.println("Error: " + e.getMessage());
+                sc.nextLine();
+            }
+        }
+
+        sc.close();
+    }
+}

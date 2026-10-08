@@ -1,0 +1,199 @@
+//4	Differentiate String, StringBuffer and StringBuilder. Write a program to perform String related operations using length(), isEmpty(), chatAt(), toString(), equals(), compareTo(), contains(), indexOf(), lastIndexOf(), startsWith(), endsWith(), matches(), substring(), toLowerCase(), trim(), replace(), split(), join(), and valueOf().
+package Assignments;
+
+import java.util.*;
+//import java.util.Arrays;
+//import java.util.Scanner;
+
+import java.util.Scanner;
+
+public class Assignment04
+{
+    public static void main(String args[])
+    {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter a string: ");
+        String s = sc.nextLine();
+
+        System.out.println("Length = " + s.length());
+        System.out.println("Is Empty = " + s.isEmpty());
+
+        System.out.print("Enter position: ");
+        int p = sc.nextInt();
+        System.out.println("Character = " + s.charAt(p));
+
+        System.out.println("To String = " + s.toString());
+
+        sc.nextLine();
+
+        System.out.print("Enter another string: ");
+        String s2 = sc.nextLine();
+
+        System.out.println("Equals = " + s.equals(s2));
+        System.out.println("Compare To = " + s.compareTo(s2));
+
+        System.out.print("Enter a word: ");
+        String word = sc.nextLine();
+
+        System.out.println("Contains = " + s.contains(word));
+        System.out.println("Index Of = " + s.indexOf(word));
+        System.out.println("Last Index Of = " + s.lastIndexOf(word));
+
+        System.out.print("Enter starting word: ");
+        String start = sc.nextLine();
+        System.out.println("Starts With = " + s.startsWith(start));
+
+        System.out.print("Enter ending word: ");
+        String end = sc.nextLine();
+        System.out.println("Ends With = " + s.endsWith(end));
+
+        System.out.println("Matches = " + s.matches(".*"));
+
+        System.out.print("Enter position for substring: ");
+        int n = sc.nextInt();
+        System.out.println("Substring = " + s.substring(n));
+
+        System.out.println("Lower Case = " + s.toLowerCase());
+
+        sc.nextLine();
+
+        System.out.print("Enter a string with spaces: ");
+        String s3 = sc.nextLine();
+        System.out.println("Trim = " + s3.trim());
+
+        System.out.print("Enter word to replace: ");
+        String old = sc.nextLine();
+
+        System.out.print("Enter new word: ");
+        String newword = sc.nextLine();
+
+        System.out.println("Replace = " + s.replace(old, newword));
+
+        System.out.print("Enter words separated by comma: ");
+        String s4 = sc.nextLine();
+
+        String a[] = s4.split(",");
+
+        System.out.println("Split:");
+        for(int i = 0; i < a.length; i++)
+        {
+            System.out.println(a[i]);
+        }
+
+        System.out.println("Join = " + String.join("-", a));
+
+        System.out.print("Enter a number: ");
+        int num = sc.nextInt();
+
+        System.out.println("Value Of = " + String.valueOf(num));
+
+        StringBuffer sb = new StringBuffer(s);
+        sb.append(" Hello");
+        System.out.println("StringBuffer = " + sb);
+
+        StringBuilder sb1 = new StringBuilder(s);
+        sb1.append(" World");
+        System.out.println("StringBuilder = " + sb1);
+
+        sc.close();
+    }
+}
+//public class Assignment04 {
+//
+//	public static void main(String[] args) {
+//		// TODO Auto-generated method stub
+//		        Scanner sc = new Scanner(System.in);
+//
+//		        System.out.print("Enter a string: ");
+//		        String s = sc.nextLine();
+//
+//		        System.out.println("Length = " + s.length());
+//
+//		        System.out.println("Is Empty = " + s.isEmpty());
+//
+//		        System.out.print("Enter position for charAt: ");
+//		        int p = sc.nextInt();
+//		        System.out.println("Character = " + s.charAt(p));
+//
+//		        System.out.println("To String = " + s.toString());
+//
+//		        System.out.print("Enter another string: ");
+//		        sc.nextLine();
+//		        String s2 = sc.nextLine();
+//
+//		        System.out.println("Equals = " + s.equals(s2));
+//
+//		        System.out.println("Compare To = " + s.compareTo(s2));
+//
+//		        System.out.print("Enter word to check: ");
+//		        String word = sc.nextLine();
+//
+//		        System.out.println("Contains = " + s.contains(word));
+//
+//		        System.out.println("Index Of = " + s.indexOf(word));
+//
+//		        System.out.println("Last Index Of = " + s.lastIndexOf(word));
+//
+//		        System.out.print("Enter starting word: ");
+//		        String start = sc.nextLine();
+//		        System.out.println("Starts With = " + s.startsWith(start));
+//
+//		        System.out.print("Enter ending word: ");
+//		        String end = sc.nextLine();
+//		        System.out.println("Ends With = " + s.endsWith(end));
+//
+//		        System.out.println("Matches = " + s.matches(".*"));
+//
+//		        System.out.print("Enter starting position for substring: ");
+//		        int n = sc.nextInt();
+//		        System.out.println("Substring = " + s.substring(n));
+//
+//		        System.out.println("Lower Case = " + s.toLowerCase());
+//
+//		        System.out.println("Trim = " + s.trim());
+//
+//		        sc.nextLine();
+//		        System.out.print("Enter word to replace: ");
+//		        String oldword = sc.nextLine();
+//
+//		        System.out.print("Enter new word: ");
+//		        String newword = sc.nextLine();
+//
+//		        System.out.println("Replace = " + s.replace(oldword, newword));
+//
+//		        System.out.print("Enter words separated by comma: ");
+//		        String s3 = sc.nextLine();
+//
+//		        String a[] = s3.split(",");
+//
+//		        System.out.println("Split = ");
+//		        for(String x : a)
+//		        {
+//		            System.out.println(x);
+//		        }
+//
+//		        System.out.println("Join = " + String.join("-", a));
+//
+//		        System.out.print("Enter a number: ");
+//		        int num = sc.nextInt();
+//
+//		        System.out.println("Value Of = " + String.valueOf(num));
+//
+//
+//		        StringBuffer sb = new StringBuffer(s);
+//		        sb.append(" Buffer");
+//
+//		        System.out.println("StringBuffer = " + sb);
+//
+//
+//		        StringBuilder sb1 = new StringBuilder(s);
+//		        sb1.append(" Builder");
+//
+//		        System.out.println("StringBuilder = " + sb1);
+//
+//		        sc.close();
+//
+//	}
+//
+//}

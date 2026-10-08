@@ -1,0 +1,142 @@
+// 2	Write a menu driven program in Java to perform insertion, deletion, linear search, binary search, to find maximum value, to count even/ odd and to perform insertion sort operation in one dimensional array.
+
+package Assignments;
+
+import java.util.Scanner;
+
+public class Assignment02 {
+	
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int[] a = new int[50];
+        
+        
+        System.out.print("Enter number of elements: ");
+        int n = sc.nextInt();
+        
+        
+        
+        System.out.println("Enter elements:");
+        for (int i = 0; i < n; i++) {
+            a[i] = sc.nextInt();
+        }
+        
+        
+        
+
+        while (true) {
+            System.out.println("\n1.Display 2.Insert 3.Delete 4.LinearSearch 5.BinarySearch 6.Max 7.Even/Odd 8.Sort 9.Exit");
+            System.out.print("Enter choice: ");
+            int ch = sc.nextInt();
+
+            
+            if (ch == 1) {
+                for (int i = 0; i < n; i++) System.out.print(a[i] + " ");
+                System.out.println();
+            } 
+            
+            else if (ch == 2) {
+                System.out.print("Enter position and element: ");
+                int pos = sc.nextInt();
+                
+                int val = sc.nextInt();
+                
+                for (int i = n; i > pos; i--) {
+                	
+                    a[i] = a[i - 1];
+                }
+                
+                a[pos] = val;
+                
+                n++;
+                
+                System.out.println("Inserted.");
+            } 
+            else if (ch == 3) {
+                System.out.print("Enter index to delete: ");
+                int pos = sc.nextInt();
+                
+                for (int i = pos; i < n - 1; i++) {
+                    a[i] = a[i + 1];
+                }
+                n--;
+                System.out.println("Deleted.");
+                
+            } 
+            else if (ch == 4) {
+                System.out.print("Enter key: ");
+                int key = sc.nextInt();
+                int found = -1;
+                
+                for (int i = 0; i < n; i++) {
+                	
+                    if (a[i] == key) { found = i; break; }
+                }
+                System.out.println(found != -1 ? "Found at " + found : "Not found");
+            } 
+            else if (ch == 5) {
+                System.out.print("Enter key: ");
+                
+                int key = sc.nextInt();
+                int l = 0, h = n - 1, found = -1;
+                
+                while (l <= h) {
+                	
+                	
+                    int m = (l + h) / 2;
+                    if (a[m] == key) { found = m; break; }
+                
+                    else if (a[m] < key) l = m + 1;
+                    else h = m - 1;
+                }
+                System.out.println(found != -1 ? "Found at " + found : "Not found");
+            } 
+            else if (ch == 6) {
+                int max = a[0];
+                for (int i = 1; i < n; i++) {
+                    if (a[i] > max) max = a[i];
+                }
+                
+                System.out.println("Max = " + max);
+                
+            } 
+            else if (ch == 7) {
+                int e = 0, o = 0;
+                
+                for (int i = 0; i < n; i++) {
+                    if (a[i] % 2 == 0) e++;
+                    
+                    else o++;
+                }
+                
+                System.out.println("Even: " + e + ", Odd: " + o);
+            } 
+            else if (ch == 8) {
+            	
+                for (int i = 1; i < n; i++) {
+                	
+                    int temp = a[i];
+                    int j = i - 1;
+                    while (j >= 0 && a[j] > temp) {
+                    	
+                        a[j + 1] = a[j];
+                        j--;
+                        
+                    }
+                    a[j + 1] = temp;
+                }
+                System.out.println("Sorted.");
+            } 
+            else if (ch == 9) {
+            	
+                break;
+            } 
+            else {
+            	
+                System.out.println("Wrong choice!");
+            }
+        }
+        sc.close();
+    }
+}
+

@@ -1,0 +1,72 @@
+//1	A class sixth student required to solve basic mathematics problems. For this he/ she needs to perform operations such as addition, subtraction, multiplication, division, remainder, square, cube, and absolute. Write a program using methods to perform these basic operations.
+
+package Assignments;
+import java.util.Scanner;
+
+public class Assignment01 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+	
+
+		class Maths
+		{
+		    static int add(int a, int b)
+		    {
+		        return a + b;
+		    }
+
+		    static int sub(int a, int b)
+		    {
+		        return a - b;
+		    }
+
+		    static int mul(int a, int b)
+		    {
+		        return a * b;
+		    }
+
+		    static int rem(int a, int b)
+		    {
+		        return a % b;
+		    }
+
+		    static int square(int a)
+		    {
+		        return a * a;
+		    }
+
+		    static int cube(int a)
+		    {
+		        return a * a * a;
+		    }
+
+		    static int absolute(int a)
+		    {
+		        if(a < 0)
+		            return -a;
+		        return a;
+		    }
+		    {
+		        Scanner sc = new Scanner(System.in);
+
+		        System.out.print("Enter first number: ");
+		        int a = sc.nextInt();
+
+		        System.out.print("Enter second number: ");
+		        int b = sc.nextInt();
+
+		        System.out.println("Addition = " + add(a,b));
+		        System.out.println("Subtraction = " + sub(a,b));
+		        System.out.println("Multiplication = " + mul(a,b));
+		        System.out.println("Division = " + (a/b));
+		        System.out.println("Remainder = " + rem(a,b));
+		        System.out.println("Square of first number = " + square(a));
+		        System.out.println("Cube of first number = " + cube(a));
+		        System.out.println("Absolute value = " + absolute(a));
+		    }
+		}
+
+	}
+
+}

@@ -1,0 +1,98 @@
+public class Assignment04 {
+
+    public static void main(String[] args) {
+
+        String str = "  Hello Java Programming  ";
+        String str2 = "Hello Java Programming";
+
+        // length()
+        System.out.println("Original String: [" + str + "]");
+        System.out.println("length() = " + str.length());
+
+        // isEmpty()
+        String emptyString = "";
+        System.out.println("isEmpty() = " + emptyString.isEmpty());
+
+        // charAt()
+        System.out.println("charAt(2) = " + str.charAt(2));
+
+        // toString()
+        String number = "123";
+        System.out.println("toString() = " + number.toString());
+
+        // equals()
+        System.out.println("equals() = " + str.trim().equals(str2));
+
+        // compareTo()
+        System.out.println("compareTo() = " + str.trim().compareTo(str2));
+
+        // contains()
+        System.out.println("contains(\"Java\") = " + str.contains("Java"));
+
+        // indexOf()
+        System.out.println("indexOf(\"Java\") = " + str.indexOf("Java"));
+
+        // lastIndexOf()
+        System.out.println("lastIndexOf(\"a\") = " + str.lastIndexOf("a"));
+
+        // startsWith()
+        System.out.println("startsWith(\"  Hello\") = "
+                + str.startsWith("  Hello"));
+
+        // endsWith()
+        System.out.println("endsWith(\"  \") = "
+                + str.endsWith("  "));
+
+        // matches()
+        System.out.println("matches(\".*Java.*\") = "
+                + str.matches(".*Java.*"));
+
+        // substring()
+        System.out.println("substring(2, 7) = "
+                + str.substring(2, 7));
+
+        // toLowerCase()
+        System.out.println("toLowerCase() = "
+                + str.toLowerCase());
+
+        // trim()
+        System.out.println("trim() = [" + str.trim() + "]");
+
+        // replace()
+        System.out.println("replace() = "
+                + str.replace("Java", "Python"));
+
+        // split()
+        String words = "Java,Python,C++,C";
+        String[] result = words.split(",");
+
+        System.out.println("split():");
+        for (String word : result) {
+            System.out.println(word);
+        }
+
+        // join()
+        String joined = String.join(" - ",
+                "Java", "Python", "C++", "C");
+
+        System.out.println("join() = " + joined);
+
+        // valueOf()
+        int n = 100;
+        String value = String.valueOf(n);
+
+        System.out.println("valueOf() = " + value);
+
+        // StringBuffer
+        StringBuffer sb = new StringBuffer("Hello");
+        sb.append(" Java");
+
+        System.out.println("StringBuffer = " + sb);
+
+        // StringBuilder
+        StringBuilder builder = new StringBuilder("Hello");
+        builder.append(" World");
+
+        System.out.println("StringBuilder = " + builder);
+    }
+}

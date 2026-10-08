@@ -1,0 +1,74 @@
+package Assignments;
+
+public class Assignment04
+{
+    public static void main(String[] args)
+    {
+        String str = "  Hello Java Programming  ";
+        String str2 = "Hello Java Programming";
+
+        System.out.println("String = " + str);
+
+        System.out.println("Length = " + str.length());
+
+        String s = "";
+        System.out.println("Is Empty = " + s.isEmpty());
+
+        System.out.println("Character at 2 = " + str.charAt(2));
+
+        System.out.println("To String = " + str.toString());
+
+        System.out.println("Equals = " + str.trim().equals(str2));
+
+        System.out.println("Compare To = " + str.trim().compareTo(str2));
+
+        System.out.println("Contains Java = " + str.contains("Java"));
+
+        System.out.println("Index of Java = " + str.indexOf("Java"));
+
+        System.out.println("Last Index of a = " + str.lastIndexOf("a"));
+
+        System.out.println("Starts With Hello = " + str.startsWith("  Hello"));
+
+        System.out.println("Ends With spaces = " + str.endsWith("  "));
+
+        System.out.println("Matches = " + str.matches(".*Java.*"));
+
+        System.out.println("Substring = " + str.substring(2, 7));
+
+        System.out.println("Lower Case = " + str.toLowerCase());
+
+        System.out.println("Trim = [" + str.trim() + "]");
+
+        System.out.println("Replace = " + str.replace("Java", "Python"));
+
+        String words = "Java,Python,C++,C";
+        String[] a = words.split(",");
+
+        System.out.println("Split:");
+
+        for(int i = 0; i < a.length; i++)
+        {
+            System.out.println(a[i]);
+        }
+
+        String joined = String.join(" - ", "Java", "Python", "C++", "C");
+
+        System.out.println("Join = " + joined);
+
+        int n = 100;
+        String value = String.valueOf(n);
+
+        System.out.println("Value Of = " + value);
+
+        StringBuffer sb = new StringBuffer("Hello");
+        sb.append(" Java");
+
+        System.out.println("StringBuffer = " + sb);
+
+        StringBuilder sb1 = new StringBuilder("Hello");
+        sb1.append(" World");
+
+        System.out.println("StringBuilder = " + sb1);
+    }
+}

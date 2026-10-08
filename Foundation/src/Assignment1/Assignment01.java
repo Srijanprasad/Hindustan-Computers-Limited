@@ -1,0 +1,83 @@
+package Assignment1;
+
+import java.util.Scanner;
+
+public class Assignment01
+{
+    static int add(int a, int b)
+    {
+        return a + b;
+    }
+
+    static int sub(int a, int b)
+    {
+        return a - b;
+    }
+    
+
+    static int mul(int a, int b)
+    {
+        return a * b;
+    }
+
+    
+    static int div(int a, int b)
+    {
+        return a / b;
+    }
+
+    static int rem(int a, int b)
+    {
+        return a % b;
+    }
+
+    static int square(int a)
+    {
+        return a * a;
+    }
+
+    static int cube(int a)
+    {
+        return a * a * a;
+    }
+
+    static int absolute(int a)
+    {
+        if(a < 0)
+            return -a;
+        else
+            return a;
+    }
+
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter first number: ");
+        int a = sc.nextInt();
+
+        System.out.print("Enter second number: ");
+        int b = sc.nextInt();
+
+        System.out.println("Addition = " + add(a, b));
+        System.out.println("Subtraction = " + sub(a, b));
+        System.out.println("Multiplication = " + mul(a, b));
+
+        if(b != 0)
+        {
+            System.out.println("Division = " + div(a, b));
+            System.out.println("Remainder = " + rem(a, b));
+        }
+        else
+        {
+            System.out.println("Division not possible");
+            System.out.println("Remainder not possible");
+        }
+
+        System.out.println("Square = " + square(a));
+        System.out.println("Cube = " + cube(a));
+        System.out.println("Absolute = " + absolute(a));
+
+        sc.close();
+    }
+}

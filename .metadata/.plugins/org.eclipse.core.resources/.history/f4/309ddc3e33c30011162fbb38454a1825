@@ -1,0 +1,197 @@
+package Assignments;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+
+public class Assignment03 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		
+
+	
+		class ArrayOperations {
+
+		    // Method to perform insertion
+		    public static int[] insert(int[] arr, int element, int position) {
+		        int[] newArr = new int[arr.length + 1];
+		        System.arraycopy(arr, 0, newArr, 0, position);
+		        newArr[position] = element;
+		        System.arraycopy(arr, position, newArr, position + 1, arr.length - position);
+		        return newArr;
+		    }
+
+		    // Method to perform deletion
+		    public static int[] delete(int[] arr, int position) {
+		        int[] newArr = new int[arr.length - 1];
+		        System.arraycopy(arr, 0, newArr, 0, position);
+		        System.arraycopy(arr, position + 1, newArr, position, arr.length - position - 1);
+		        return newArr;
+		    }
+
+		    // Method to perform linear search
+		    public static int linearSearch(int[] arr, int element) {
+		        for (int i = 0; i < arr.length; i++) {
+		            if (arr[i] == element) {
+		                return i;
+		            }
+		        }
+		        return -1;
+		    }
+
+		    // Method to perform binary search
+		    public static int binarySearch(int[] arr, int element) {
+		        int left = 0;
+		        int right = arr.length - 1;
+		        while (left <= right) {
+		            int mid = left + (right - left) / 2;
+		            if (arr[mid] == element) {
+		                return mid;
+		            } else if (arr[mid] < element) {
+		                left = mid + 1;
+		            } else {
+		                right = mid - 1;
+		            }
+		        }
+		        return -1;
+		    }
+
+		    // Method to find maximum value
+		    public static int findMax(int[] arr) {
+		    	
+		        int max = arr[0];
+		        
+		        for (int i = 1; i < arr.length; i++) {
+		            if (arr[i] > max) {
+		                max = arr[i];
+		            }
+		        }
+		        return max;
+		    }
+
+		    // Method to count even/odd
+		    public static int[] countEvenOdd(int[] arr) {
+		    	
+		        int evenCount = 0;
+		        
+		        int oddCount = 0;
+		        
+		        for (int num : arr) {
+		            if (num % 2 == 0) {
+		                evenCount++;
+		            } else {
+		                oddCount++;
+		            }
+		        }
+		        return new int[]{evenCount, oddCount};
+		    }
+
+		    // Method to perform insertion sort
+		    public static int[] insertionSort(int[] arr) {
+		    	
+		        for (int i = 1; i < arr.length; i++) {
+		            int key = arr[i];
+		            
+		            int j = i - 1;
+		            while (j >= 0 && arr[j] > key) {
+		            	
+		                arr[j + 1] = arr[j];
+		                j--;
+		            }
+		            arr[j + 1] = key;
+		        }
+		        return arr;
+		    }
+
+		    public static void main(String[] args) {
+		        Scanner sc = new Scanner(System.in);
+		        int[] arr = {10, 20, 30, 40, 50};
+		        int choice;
+
+		        do {
+		            System.out.println("Menu:");
+		            System.out.println("1. Insertion");
+		            System.out.println("2. Deletion");
+		            System.out.println("3. Linear Search");
+		            System.out.println("4. Binary Search");
+		            System.out.println("5. Find Maximum Value");
+		            System.out.println("6. Count Even/Odd");
+		            System.out.println("7. Insertion Sort");
+		            System.out.println("8. Exit");
+		            System.out.print("Enter your choice: ");
+		            choice = sc.nextInt();
+
+		            switch (choice) {
+		                case 1:
+		                    System.out.print("Enter element to insert: ");
+		                    int element = sc.nextInt();
+		                    System.out.print("Enter position to insert: ");
+		                    int position = sc.nextInt();
+		                    arr = insert(arr, element, position);
+		                    System.out.println("Array after insertion: " + Arrays.toString(arr));
+		                    break;
+
+		                case 2:
+		                    System.out.print("Enter position to delete: ");
+		                    position = sc.nextInt();
+		                    arr = delete(arr, position);
+		                    System.out.println("Array after deletion: " + Arrays.toString(arr));
+		                    break;
+
+		                case 3:
+		                    System.out.print("Enter element to search: ");
+		                    element = sc.nextInt();
+		                    int index = linearSearch(arr, element);
+		                    if (index != -1) {
+		                        System.out.println("Element found at index: " + index);
+		                    } else {
+		                        System.out.println("Element not found");
+		                    }
+		                    break;
+
+		                case 4:
+		                    System.out.print("Enter element to search: ");
+		                    element = sc.nextInt();
+		                    index = binarySearch(arr, element);
+		                    if (index != -1) {
+		                        System.out.println("Element found at index: " + index);
+		                    } else {
+		                        System.out.println("Element not found");
+		                    }
+		                    break;
+
+		                case 5:
+		                    int max = findMax(arr);
+		                    System.out.println("Maximum value: " + max);
+		                    break;
+
+		                case 6:
+		                    int[] counts = countEvenOdd(arr);
+		                    System.out.println("Even count: " + counts[0]);
+		                    System.out.println("Odd count: " + counts[1]);
+		                    break;
+
+		                case 7:
+		                    arr = insertionSort(arr);
+		                    System.out.println("Array after insertion sort: " + Arrays.toString(arr));
+		                    break;
+
+		                case 8:
+		                    System.out.println("Exiting...");
+		                    break;
+
+		                default:
+		                    System.out.println("Invalid choice. Please try again.");
+		            }
+		        } while (choice != 8);
+
+		        sc.close();
+		    }
+		}
+
+
+	}
+
+}

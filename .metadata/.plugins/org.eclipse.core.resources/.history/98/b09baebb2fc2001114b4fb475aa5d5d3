@@ -1,0 +1,75 @@
+//1	A class sixth student required to solve basic mathematics problems. For this he/ she needs to perform operations such as addition, subtraction, multiplication, division, remainder, square, cube, and absolute. Write a program using methods to perform these basic operations.
+
+package Assignments;
+import java.util.Scanner;
+
+
+//import java.util.Scanner;
+
+class Maths
+{
+    int add(int a, int b)
+    {
+        return a + b;
+    }
+
+    int sub(int a, int b)
+    {
+        return a - b;
+    }
+
+    int mul(int a, int b)
+    {
+        return a * b;
+    }
+
+    int div(int a, int b)
+    {
+        return a / b;
+    }
+
+    int rem(int a, int b)
+    {
+        return a % b;
+    }
+
+    int square(int a)
+    {
+        return a * a;
+    }
+
+    int cube(int a)
+    {
+        return a * a * a;
+    }
+
+    int absolute(int a)
+    {
+        if(a < 0)
+            return -a;
+        else
+            return a;
+    }
+
+    public static void main(String args[])
+    {
+        Scanner sc = new Scanner(System.in);
+
+        Maths ob = new Maths();
+
+        System.out.print("Enter first number: ");
+        int a = sc.nextInt();
+
+        System.out.print("Enter second number: ");
+        int b = sc.nextInt();
+
+        System.out.println("Addition = " + ob.add(a,b));
+        System.out.println("Subtraction = " + ob.sub(a,b));
+        System.out.println("Multiplication = " + ob.mul(a,b));
+        System.out.println("Division = " + ob.div(a,b));
+        System.out.println("Remainder = " + ob.rem(a,b));
+        System.out.println("Square = " + ob.square(a));
+        System.out.println("Cube = " + ob.cube(a));
+        System.out.println("Absolute value = " + ob.absolute(a));
+    }
+}
